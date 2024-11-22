@@ -1,0 +1,10 @@
+<main *ngIf="favorites$ | async as favorites">
+  <section class="photos img-grid" *ngIf="!(favorites | emptyObject); else emptyList">
+    <div *ngFor="let favorite of favorites | keyvalue; trackBy: trackByPhoto">
+      <img [ngSrc]="favorite.value" width="200" height="200" alt="Photo" priority [routerLink]="['/', 'photos', favorite.key]">
+    </div>
+  </section>
+</main>
+<ng-template #emptyList>
+  <p>No photos found! Go fave some!</p>
+</ng-template>

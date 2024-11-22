@@ -1,0 +1,15 @@
+.img-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  grid-gap: 1rem;
+}
+
+img {
+  object-fit: cover;
+  cursor: pointer;
+}
+
+p {
+  text-align: center;
+  padding: 1rem;
+}

@@ -1,8 +1,6 @@
-# XmTest
+# Photo library - XM Test
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.0.0.
-
-## Development server
+## How to interact with the project
 
 To start a local development server, run:
 
@@ -10,50 +8,69 @@ To start a local development server, run:
 ng serve
 ```
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
-
-## Code scaffolding
-
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
-
-```bash
-ng generate component component-name
-```
-
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
-
-```bash
-ng generate --help
-```
-
-## Building
-
-To build the project run:
-
-```bash
-ng build
-```
-
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
-
-## Running unit tests
-
 To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
 
 ```bash
 ng test
 ```
 
-## Running end-to-end tests
+# Project Tasks
 
-For end-to-end (e2e) testing, run:
+Due to time constraints, I've created a list of tasks based on the project requirements.
+Not all of them are completed, but I've marked the ones that are.
 
-```bash
-ng e2e
-```
+## General Setup
+- [x] Use the latest Angular version to create the project.
+- [x] Set up SCSS as the default styling preprocessor.
+- [x] Install and configure Angular Material.
+- [ ] Structure the project with separate reusable components, modules, and services for better organization.
 
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
+## Routing
+- [x] Set up Angular Router to define routes:
+  - `/` for the Photos screen.
+  - `/favorites` for the Favorites screen.
+  - `/photos/:id` for the Single Photo page.
 
-## Additional Resources
+## Header Component
+- [x] Use Angular Material components to create a header with:
+  - Two buttons for navigation between "Photos" and "Favorites" views.
+  - Highlight the active route using Angular Router's `routerLinkActive`.
 
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+## Photos Screen
+- [x] Create the Photos component and set up the `/` route.
+- [x] Implement infinite scrolling without libraries:
+  - Use a scroll event listener to detect when the user nears the bottom of the page.
+  - Fetch random photos using `https://picsum.photos/200/300`.
+  - Introduce a delay (200-300ms) to simulate API behavior.
+  - Show a loader icon while new photos are loading.
+- [x] Add click functionality to save a photo to the Favorites library.
+
+## Favorites Screen
+- [x] Create the Favorites component and set up the `/favorites` route.
+- [x] Use localStorage or similar for state retention without a backend server.
+- [x] Add functionality to navigate to the Single Photo page when a photo is clicked.
+
+## Single Photo Page
+- [x] Create the Single Photo component and set up the `/photos/:id` route.
+- [x] Add a “Remove from favorites” button to the page.
+  - Implement functionality to remove the photo from the Favorites list.
+- [x] Ensure the header remains consistent across all pages.
+- [x] Redirect to the Photos screen once a photo is removed from the Favorites list.
+
+## State Management
+- [x] Use a shared Angular service for managing Favorites state across components.
+- [x] Persist the Favorites state to localStorage on updates and retrieve it on initialization.
+
+## Unit Tests
+- [x] Write unit tests for all components:
+  - Test the header's navigation functionality.
+  - Test infinite scrolling behavior on the Photos screen.
+  - Test adding and removing photos from the Favorites library.
+  - Test persistence of Favorites state across page refreshes.
+  - Test photo rendering in the Single Photo page.
+
+## Additional Considerations
+- [ ] Use Angular Material theming to ensure a consistent and modern UI design.
+- [ ] Ensure the application is responsive for different screen sizes.
+- [ ] Test the app thoroughly to catch bugs and edge cases.
+- [ ] Refactor reusable functionality into shared components or modules where appropriate.

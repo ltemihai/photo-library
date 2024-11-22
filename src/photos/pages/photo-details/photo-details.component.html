@@ -1,0 +1,4 @@
+<section *ngIf="photoUrl$ | async as photoUrl">
+  <img [src]="photoUrl" alt="photo.title">
+  <button mat-button (click)="removeFromFavorites(photoId)">Remove from favorites</button>
+</section>

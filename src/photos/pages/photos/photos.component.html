@@ -1,0 +1,10 @@
+<main *ngIf="photos$ | async as photos">
+  <section class="photos img-grid">
+    <div *ngFor="let photo of photos; trackBy: trackByPhoto">
+      <img [ngSrc]="photo.download_url" width="200" height="200" alt="photo.title" priority (click)="addPhotoToFavorite(photo)">
+    </div>
+  </section>
+</main>
+<div *ngIf="loading$ | async" class="loading-spinner">
+  <mat-progress-spinner mode="indeterminate"></mat-progress-spinner>
+</div>
